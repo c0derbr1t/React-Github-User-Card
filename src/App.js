@@ -101,8 +101,7 @@ class App extends React.Component {
     // console.log('people', this.state.people);
     return (
       <div className='App'>
-        <UserForm value={this.state.userName} handleChanges={this.handleChanges} click={this.fetchPeople}
-        <div>
+        <div className="form-div">
           <input
             type='text'
             value={this.state.userName}
@@ -116,7 +115,7 @@ class App extends React.Component {
           <User user={this.state.user} />
         </div>
         <div>
-        <h2>Followers:</h2>
+        <h2 className="title">Followers:</h2>
           <PeopleList people={this.state.people} />
         </div>
       </div>
