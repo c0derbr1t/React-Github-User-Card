@@ -1,7 +1,7 @@
 import React from 'react';
 
 const User = props => {
-    console.log(props.user);
+    console.log("User.js", props.user);
     return (
         <div className="user-card">
             <div className="user-image">
