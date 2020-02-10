@@ -1,0 +1,120 @@
+html {
+  background-image: url('https://images.squarespace-cdn.com/content/v1/500f1e90c4aaf86e4685ca92/1370830685257-WX6ZRKHCYL672LKDB9D8/ke17ZwdGBToddI8pDm48kJanlAjKydPZDDRBEy8QTGN7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0hveExjbswnAj1UrRPScjfAi-WHBb3R4axoAEB7lfybbrcBqLQ3Qt4YGS4XJxXD2Ag/120929_Pixels-green-gradient.jpg?format=1500w');
+  background-size: cover;
+}
+
+.App {
+  text-align: center;
+  font-family: 'Gayathri', sans-serif;
+}
+
+h1 {
+  background: rgba(11, 63, 14, 0.8);
+  font-size: 4rem;
+  padding: 3% 0 1%;
+  color: rgb(0, 255, 0);
+  width: 75%;
+  margin: 2% auto;
+  border-radius: 50px;
+  box-shadow: 5px 15px 15px black;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+.title {
+  font-size: 2rem;
+  background: rgba(26, 68, 28, 0.8);
+  padding: 2% 0 1%;
+  color: rgb(0, 255, 0);
+  width: 30%;
+  margin: 2% auto;
+  border-radius: 50%;
+  box-shadow: 5px 15px 15px black;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.2rem;
+  color: white;
+}
+
+p {
+  font-size: 1.1rem;
+  color: white;
+}
+
+.user-image img {
+  border-radius: 50%;
+}
+
+.people-div {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: 0 auto 2%;
+  justify-content: space-evenly;
+  box-shadow: 1px 5px 15px black;
+}
+
+.user-card {
+  background: rgba(11, 63, 14, 0.8);
+  width: 75%;
+  margin: 0 auto 5%;
+  padding: 1%;
+  border-radius: 25%;
+  box-shadow: 5px 15px 15px black;
+}
+
+.person-card {
+  background: rgba(40, 65, 41, 0.8);
+  width: 23%;
+  margin: 2% 1%;
+  padding: 1%;
+  border-radius: 25%;
+  box-shadow: 5px 15px 15px black;
+}
+
+.person-card img {
+  width: 60%;
+  border-radius: 50%;
+}
+
+a {
+  text-decoration: underline dotted #ceffce;;
+  color: #00ff00;
+  font-weight: bold;
+}
+
+.form-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2% 1% 4%;
+}
+input {
+  font-family: 'Gayathri', sans-serif;
+  text-align: center;
+  margin: 1%;
+  font-size: 1.75rem;
+  padding: 1% 0 0;
+  line-height: 1.5;
+  width: 30%;
+  background: black;
+  color: #00ff00;
+  box-shadow: 5px 15px 15px black;
+}
+
+button {
+  font-family: 'Gayathri', sans-serif;
+  padding: 1% 1% .25%;
+  font-size: 1.1rem;
+  font-weight: bold;
+  background: #00ff00;
+  color: black;
+  box-shadow: 5px 15px 15px black;
+}
