@@ -6,11 +6,15 @@ import User from './components/User';
 
 import './App.css';
 
-import { token } from './assets/auth.js';
+import { token } from '../assets/auth.js';
+
+const localUser = JSON.parse(localStorage.getItem("user"));
+const localPeople = JSON.parse(localStorage.getItem("people"));
+const localUserName = JSON.parse(localStorage.getItem("userName"));
 
 class App extends React.Component {
-  state = {
-    user: [],
+    state = {
+    user: localUser || [],
     userName: '',
     people: []
   };
@@ -26,6 +30,8 @@ class App extends React.Component {
       .get('https://api.github.com/users/c0derbr1t', options)
       .then(response => {
         // console.log("my card", response.data);
+        localStorage.setItem("user", JSON.stringify(response.data));
+        localStorage.setItem("userName", JSON.stringify(response.data.login));
         this.setState({
           user: response.data,
           userName: response.data.login
@@ -37,6 +43,7 @@ class App extends React.Component {
       .get('https://api.github.com/users/c0derbr1t/followers', options)
       .then(res => {
         // console.log('people.data', res.data);
+        localStorage.setItem("people", JSON.stringify(res.data));
         this.setState({
           people: res.data
         })
@@ -69,6 +76,7 @@ class App extends React.Component {
   // }
 
   handleChanges = e => {
+    localStorage.setItem("userName", JSON.stringify(e.target.value));
     this.setState({
       userName: e.target.value
     });
@@ -76,10 +84,17 @@ class App extends React.Component {
 
   fetchPeople = e => {
     e.preventDefault();
+
+    let options = {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    }
    
     axios
-      .get(`https://api.github.com/users/${this.state.userName}`)
+      .get(`https://api.github.com/users/${this.state.userName}`, options)
       .then(response => {
+        localStorage.setItem("user", JSON.stringify(response.data));
         this.setState({
           user: response.data
         })
@@ -87,8 +102,9 @@ class App extends React.Component {
       .catch(error => console.log(error));
 
     axios
-      .get(`https://api.github.com/users/${this.state.userName}/followers`)
+      .get(`https://api.github.com/users/${this.state.userName}/followers`, options)
       .then(res => {
+        localStorage.setItem("people", JSON.stringify(res.data));
         this.setState({
           people: res.data
         })
@@ -109,14 +125,14 @@ class App extends React.Component {
           />
           <button onClick={this.fetchPeople}>Get User</button>
         </div>
-        <h1>Hello {this.state.userName}!</h1>
+        <h1>Hello {localUserName}!</h1>
         
         <div>
-          <User user={this.state.user} />
+          <User user={localUser} />
         </div>
         <div>
         <h2 className="title">Followers:</h2>
-          <PeopleList people={this.state.people} />
+          <PeopleList people={localPeople} />
         </div>
       </div>
     )
